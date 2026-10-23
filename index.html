@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sorting Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="head">
+      <h1>Sorting visualizer</h1>
+      <p>Watch how each algorithm puts the bars in order, one comparison at a time.</p>
+    </header>
+
+    <section class="controls" aria-label="Controls">
+      <label>Algorithm
+        <select id="algo">
+          <option value="bubble">Bubble sort</option>
+          <option value="selection">Selection sort</option>
+          <option value="insertion">Insertion sort</option>
+          <option value="merge">Merge sort</option>
+          <option value="quick">Quick sort</option>
+        </select>
+      </label>
+      <label>Array size: <output id="sizeOut">30</output>
+        <input id="size" type="range" min="5" max="80" value="30">
+      </label>
+      <label>Speed: <output id="speedOut">6</output>
+        <input id="speed" type="range" min="1" max="10" value="6">
+      </label>
+      <div class="buttons">
+        <button id="newBtn" type="button" class="secondary">New array</button>
+        <button id="sortBtn" type="button" class="primary">Start sorting</button>
+        <button id="stopBtn" type="button" class="secondary" disabled>Stop</button>
+      </div>
+    </section>
+
+    <section class="stage" aria-label="Array bars">
+      <div id="bars" class="bars" role="img" aria-label="Bars representing the array"></div>
+      <p id="status" class="status" aria-live="polite">Pick an algorithm and press Start sorting.</p>
+    </section>
+
+    <section class="legend" aria-label="Colour key">
+      <span><i class="dot d-base"></i>Unsorted</span>
+      <span><i class="dot d-compare"></i>Being compared</span>
+      <span><i class="dot d-swap"></i>Swapped or written</span>
+      <span><i class="dot d-pivot"></i>Pivot</span>
+      <span><i class="dot d-sorted"></i>In final position</span>
+    </section>
+
+    <section class="panel">
+      <div class="stats">
+        <div><strong id="cmpCount">0</strong><span>Comparisons</span></div>
+        <div><strong id="moveCount">0</strong><span>Swaps / writes</span></div>
+      </div>
+      <div class="info">
+        <h2 id="infoName"></h2>
+        <p id="infoIdea"></p>
+        <p class="complexity" id="infoTime"></p>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
